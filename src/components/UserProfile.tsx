@@ -1,13 +1,23 @@
-import React, {useEffect} from 'react';
-import {View, StyleSheet, Text, Image} from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {
+  View,
+  StyleSheet,
+  Text,
+  Image,
+  TextInput,
+
+} from 'react-native';
 import svg from '../assets/svg';
 
 import {COLORS} from '../assets/theme';
-import colors from 'src/assets/theme/colors';
+
 const AddIcon = svg['addSmall'].default;
 const EditIcon = svg['edit'].default;
 
 export default ({props}: any) => {
+  const [status, setStatus] = useState(`Aloha, I'm new here!`);
+  const [focus, setFocus] = useState(false);
+  console.log(focus)
   return (
     <View style={styles.container}>
       <View>
@@ -19,14 +29,26 @@ export default ({props}: any) => {
             }
           />
         </View>
-
         <AddIcon style={styles.addIcon} />
       </View>
       <View>
         <Text style={styles.name}>Jane Doe</Text>
         <View style={styles.statusContainer}>
-        <Text style={styles.status}>Aloha, I'm new here!</Text>
-        <EditIcon style={{marginLeft:10, marginTop:-2}}/>
+          <TextInput
+            style={styles.status}
+            onChangeText={text => text.length <= 23 && setStatus(text)}
+            value={status}
+            autoFocus={focus}
+            editable={focus}
+            onBlur={()=> setFocus(false)}
+            clearTextOnFocus={true}
+            autoCorrect={false}
+          />
+
+          <EditIcon
+            style={{marginLeft: 10, marginTop: -2, position: 'absolute', left: 145}}
+            onPress={() => (console.log('focus'), setFocus(true))}
+          />
         </View>
       </View>
     </View>
@@ -55,15 +77,15 @@ const styles = StyleSheet.create({
     borderColor: COLORS.green,
     borderWidth: 2.5,
     marginLeft: 15,
-    marginTop: -5
+    marginTop: -5,
   },
   imageShadow: {
     shadowColor: '#000000',
     shadowOffset: {
-      width:0,
+      width: 0,
       height: 12,
     },
-    shadowOpacity: 0.20,
+    shadowOpacity: 0.2,
     shadowRadius: 3.84,
   },
 
@@ -73,7 +95,7 @@ const styles = StyleSheet.create({
     color: COLORS.white,
     fontWeight: '400',
     marginLeft: 30,
-    marginBottom:10
+    marginBottom: 10,
   },
 
   status: {
@@ -81,7 +103,6 @@ const styles = StyleSheet.create({
     fontFamily: 'Montserrat-Regular',
     fontSize: 11,
     marginLeft: 30,
-   
   },
 
   addIcon: {
@@ -91,7 +112,6 @@ const styles = StyleSheet.create({
   },
 
   statusContainer: {
-    flexDirection:'row'
-  }
-
+    flexDirection: 'row',
+  },
 });
