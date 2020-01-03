@@ -24,6 +24,7 @@ import { createStackNavigator } from 'react-navigation-stack';
 import 'react-native-gesture-handler'
 import SplashScreen from './screens/SplashScreen'
 import Header from './components/Header'
+import ButtonSlider from './components/ButtonSlider'
 import {COLORS} from './assets/theme'
 
 
@@ -33,6 +34,9 @@ const Home = () => {
     <View style={styles.screen}>
       <StatusBar barStyle="light-content" />
       <Header></Header>
+      <View>
+      <ButtonSlider/>
+      </View>
     </View>
   );
 };
