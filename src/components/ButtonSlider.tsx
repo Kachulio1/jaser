@@ -12,11 +12,11 @@ export default class extends React.Component {
     this.setState({isOn: !this.state.isOn}, () => {
       Animated.timing(this.state.animatedValue, {
         toValue: this.state.isOn ? 132 : 0,
-        duration: 400,
+        duration: 300,
       }).start();
       Animated.timing(this.state.fadeAnim, {
         toValue: this.state.isOn ? 1 : 0,
-        duration: 900,
+        duration: 700,
       }).start();
     });
   }
