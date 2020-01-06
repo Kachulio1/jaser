@@ -223,7 +223,7 @@ PODS:
     - React
   - RNScreens (1.0.0-alpha.23):
     - React
-  - RNSVG (9.13.6):
+  - RNSVG (10.0.0):
     - React
   - Yoga (1.14.0)
 
@@ -354,7 +354,7 @@ SPEC CHECKSUMS:
   RNGestureHandler: 946a7691e41df61e2c4b1884deab41a4cdc3afff
   RNReanimated: b2ab0b693dddd2339bd2f300e770f6302d2e960c
   RNScreens: f28b48b8345f2f5f39ed6195518291515032a788
-  RNSVG: 8ba35cbeb385a52fd960fd28db9d7d18b4c2974f
+  RNSVG: 9d45f03136ecc9b5497e12f6f20838b568acb9f4
   Yoga: f2a7cd4280bfe2cca5a7aed98ba0eb3d1310f18b
 
 PODFILE CHECKSUM: 002720058db55032e3cfb468f8c11fbdcd2f3453
