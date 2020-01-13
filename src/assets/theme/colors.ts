@@ -6,5 +6,6 @@ export default {
     chatBubbleDark: '#354258',
     greyWhite: '#E4E4E4',
     white: '#fff',
-    statusColor: '#707070'
+    statusColor: '#707070',
+    textColor: "#707070"
 }
