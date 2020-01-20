@@ -1,7 +1,7 @@
 import React from 'react';
 import {TouchableOpacity, Animated, View, Text, StyleSheet} from 'react-native';
 import {COLORS} from '../assets/theme';
-export default class extends React.Component {
+export default class extends React.Component <any, any>{
   state = {
     isOn: false,
     animatedValue: new Animated.Value(0),
@@ -19,7 +19,9 @@ export default class extends React.Component {
         duration: 700,
       }).start();
     });
+    this.props.setCurrentPage(!this.state.isOn)
   }
+  
   render() {
     return (
       <View style={{alignItems: 'center', marginTop: 20}}>
