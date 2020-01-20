@@ -8,7 +8,7 @@
  * @format
  */
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { StyleSheet, View, Text, StatusBar, Platform } from 'react-native';
 import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';
@@ -33,7 +33,13 @@ const CallsScreen = () => (
     <Text>Calls</Text>
   </View>
 );
-const Home = () => {
+const Home = (props:any) => {
+  const [currentPage, setPage] =  useState('messages');
+
+  const setCurrentPage = (state:boolean) => {
+      state ? setPage('groups') : setPage('messages')
+  }
+  
   const usingHermes =
     typeof HermesInternal === 'object' && HermesInternal !== null;
 
@@ -42,10 +48,10 @@ const Home = () => {
       <StatusBar barStyle="light-content" />
       <Header></Header>
       <View>
-        <ButtonSlider />
+        <ButtonSlider setCurrentPage={setCurrentPage} navigation={props.navigation} />
       </View>
       <View style={styles.messageList}>
-        <MessageList />
+        <MessageList navigation={props.navigation} currentPage={currentPage} />
       </View>
     </View>
   );
